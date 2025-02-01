@@ -39,7 +39,7 @@ public class PostsController {
             }
             return ResponseEntity.ok(postRepository.findAll());
         } catch (Exception e) {
-            return ResponseEntity.badRequest().build();
+            return ResponseEntity.internalServerError().build();
         }
     }
 
@@ -93,7 +93,7 @@ public class PostsController {
             })
             .orElseGet(() -> ResponseEntity.notFound().build());
         } catch (Exception e) {
-            return ResponseEntity.notFound().build();
+            return ResponseEntity.internalServerError().build();
         }
     }
 
